@@ -1,7 +1,15 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Header from './components/Header'
+import HeaderMain from "./components/HeaderMain";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Products from "./components/Products";
+import Testimonial from "./components/Testimonial";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,9 +33,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col"  suppressHydrationWarning>
+        <Header/>
+        <HeaderMain/>
+        <Navbar/>
+        <Hero/>
+        <Products/>
+        <Testimonial/>
+        {children}</body>
     </html>
   );
 }
